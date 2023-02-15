@@ -1,0 +1,554 @@
+\documentclass[a5paper, 11pt]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{tabularray}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage{float}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{fontspec}
+\usepackage[russian]{babel}
+\usepackage{indentfirst}
+\usepackage{MnSymbol}
+\usepackage[
+    left=10mm,
+    right=10mm,
+    top=15mm,
+    bottom=15mm
+]{geometry}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{unicode-math}
+\usepackage[math]{cellspace}
+\usepackage{mathtools}
+
+\setmainfont{PT Astra Serif}
+\setmathfont{Latin Modern Math}
+\setmathfont[range=\setminus]{Asana Math}
+\setmathfont[range=\varnothing]{Asana Math}
+
+\pagestyle{plain}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Теорема}[subsection]
+\renewcommand{\thetheorem}{\arabic{theorem}}
+
+\newtheorem*{theorem*}{Теорема}
+
+\newtheorem{lemma}{Лемма}[subsection]
+\renewcommand{\thelemma}{\arabic{lemma}}
+
+\newtheorem{property}{Свойство}[subsection]
+\renewcommand{\theproperty}{\arabic{property}}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}[subsection]
+\renewcommand{\thedefinition}{\arabic{definition}}
+
+\theoremstyle{definition}
+\newtheorem*{definition*}{Определение}
+
+\newtheorem{consequence}{Следствие}[subsection]
+\makeatletter
+\counterwithin{consequence}{property}
+\counterwithin{consequence}{theorem}
+\makeatother
+\renewcommand{\theconsequence}{\arabic{consequence}}
+
+\newtheorem*{consequence*}{Следствие}
+
+\newtheorem{note}{Замечание}[subsection]
+\makeatletter
+\counterwithin{note}{property}
+\counterwithin{note}{theorem}
+\makeatother
+\renewcommand{\thenote}{\arabic{note}}
+
+\newtheorem*{note*}{Замечание}
+
+\numberwithin{figure}{section}
+
+\newcommand{\intersects}{\mathord{\bigcirc\kern-0.5em{\bigcirc}}}
+\newcommand{\symdiff}{\medtriangleup}
+
+
+\newcommand{\newpar}{$ $\par\nobreak\ignorespaces}
+\renewenvironment{proof}{{\noindent\bfseries Доказательство.}}{\smallskip\newpar \hfill\textit{Что и требовалось доказать.}}
+\usepackage[x11names]{xcolor}
+\author{Daniil Shvalov}
+\date{\today}
+\title{}
+\hypersetup{
+    pdfauthor={Daniil Shvalov},
+    pdftitle={},
+    pdfkeywords={},
+    pdfsubject={},
+    pdflang={Russian}}
+
+
+% Define math operators
+\DeclareMathOperator{\rang}{rang}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\defect}{def}
+
+
+% Draw line in matrix
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+    \hskip -\arraycolsep
+    \let\@ifnextchar\new@ifnextchar
+    \array{#1}}
+\makeatother
+
+% Add new table align types
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
+
+\setlist[itemize]{itemsep=0.5em,topsep=0em,parsep=0em}
+\setlist[enumerate]{itemsep=0.5em,topsep=0em,parsep=0em}
+
+\makeatletter
+\def\thm@space@setup{\thm@preskip=1pt
+    \thm@postskip=1pt}
+\makeatother
+
+\def\lets{%
+    \mathord{\setbox0=\hbox{$\exists$}%
+        \hbox{\kern 0.125\wd0%
+            \vbox to \ht0{%
+                \hrule width 0.75\wd0%
+                \vfill%
+                \hrule width 0.75\wd0}%
+            \vrule height \ht0%
+            \kern 0.125\wd0}%
+    }%
+}
+
+\begin{document}
+
+\hypersetup{linktoc = all, colorlinks = true, urlcolor = DodgerBlue4, citecolor = PaleGreen1, linkcolor = black}
+\tableofcontents
+\hypersetup{linktoc = all, colorlinks = true, urlcolor = DodgerBlue4, citecolor = PaleGreen1, linkcolor = blue}
+\newpage
+
+\section{Множества и отношения}
+
+\subsection{Основные понятия}
+
+\textbf{Множество} -- любая определенная совокупность объектов. Элементы множества различны и отличными друг от друга.
+
+Под \textbf{множеством} понимают любой набор определенных и различимых между собой объектов, мыслимый как единое целое. Объекты, из которых составлено множество, называются его \textbf{элементами}.
+
+Множества обычно обозначатся заглавными латинскими буквами: \(A, B, C, \ldots\). Элементы множества обозначаются строчными латинскими буквами: \(a, b, c, \ldots\).
+
+Для обозначения того, что объект \(x\) является, либо не является элементом множества \(A\), используют символику:
+\begin{itemize}
+    \item \(x \in A\) -- объект \(x\) является элементом множества \(A\).
+    \item \(x \notin A\) -- объект \(x\) не является элементом множества \(A\).
+\end{itemize}
+
+Множество, не содержащее ни одного элемента, называется \textbf{пустым} и обозначается символом \(\varnothing\).
+
+Множество, из элементов которого составляют конкретное множество, называют \textbf{универсальным} и обозначается символом \(U\).
+
+Множество \(U\) называется \textbf{универсальным} для данной задачи, если все рассматриваемые в этой задаче множества являются его подмножествами.
+
+Множества можно изображать с помощью кругов, которые называются \textbf{кругами Эйлера} или \textbf{диаграммами Венна}. Универсальное множество принято обозначать прямоугольником.
+
+Способы задания множества:
+\begin{enumerate}
+    \item перечислением всех элементов множества (в фигурных скобках через запятую):
+          \[
+              A = \{1, 2, 3, 4\};
+          \]
+    \item характеристическим предикатом, который описывает свойство всех элементов, входящих в множество. Характеристический предикат записывается после двоеточия или символа <<\(\mid\)>>:
+          \[
+              A = \{x: P(x)\}
+              \quad
+              \text{или}
+              \quad
+              A = \{x \mid P(x)\}
+          \]
+          где \(P(x)\) -- характеристический предикат.
+\end{enumerate}
+
+Обозначения числовых множеств:
+\begin{itemize}
+    \item \(\mathbb{N}\) -- множества натуральных чисел, \(\mathbb{N} = \{1, 2, 3, \ldots\}\);
+    \item \(\mathbb{Z}\) -- множества целых чисел, \(\mathbb{Z} = \{\ldots, -2, -1, 0, 1, 2, \ldots\}\);
+    \item \(\mathbb{Q}\) -- множество рациональных числе, \(\mathbb{Q} = \Big\{\dfrac{m}{n} (m \in \mathbb{Z}, n \in \mathbb{N})\Big\}\);
+    \item \(\mathbb{R}\) -- множество действительных (вещественных) чисел;
+    \item \(\mathbb{C}\) -- множество комплексных чисел.
+\end{itemize}
+
+\subsection{Сравнение множеств}
+
+Множество \(A\) называется \textbf{подмножеством} множества \(B\) (множество \(A\) содержится в \(B\), множество \(B\) включает множество \(A\)), если каждый элемент множества \(A\) является элементом множества \(B\):
+\[
+    A \subseteq B
+    \iff
+    \forall x \in A \implies x \in B.
+\]
+\(B\) называется \textbf{надмножеством} множества \(A\).
+
+Под определению пустое множество является подмножеств всех множеств:
+\[
+    \forall M \implies \varnothing \subseteq M.
+\]
+Универсальное множество содержит все множества:
+\[
+    \forall M \implies M \subseteq U.
+\]
+
+Два множества называют \textbf{равными}, если они являются подмножествами друг друга:
+\[
+    A = B
+    \iff
+    A \subseteq B \land B \subseteq A.
+\]
+
+Если \(A \subseteq B\) и \(A \neq B\), то множество \(A\) называется \textbf{собственным} подмножеством множества \(B\), а \(B\) -- \textbf{собственным} надмножеством \(A\).
+
+Множества \(A\) и \(B\) \textbf{сравнимые}, если \(A \subseteq B \lor B \subseteq A\). Иначе множества называются \textbf{несравнимыми}.
+
+\subsection{Свойства включения множеств}
+
+\begin{property}
+    \[
+        \forall A \implies A \subseteq A.
+    \]
+\end{property}
+
+\begin{property}
+    \[
+        \forall A, B : A \subseteq B \land B \subseteq A \implies A = B.
+    \]
+\end{property}
+
+\begin{property}
+    \[
+        \forall A, B, C : A \subseteq B \land B \subseteq C \implies A \subseteq C.
+    \]
+\end{property}
+
+\subsection{Мощность множества}
+
+Говорят, что между множествами \(A\) и \(B\) установлено \textbf{взаимно-однозначное соответствие}, если каждому элементу множества \(A\) поставлен в соответствие один и только один элемент множества \(B\), и каждому элементу множества \(B\) поставлен в соответствие один и только один элемент множества \(A\):
+\[
+    A \tilde B
+    \iff
+    \begin{dcases}
+        \forall a \in A \rightarrowtail !b \in B \\
+        \forall b \in B \rightarrowtail !a \in A
+    \end{dcases}
+\]
+
+Два множества (конечных или бесконечных) имеют \textbf{одинаковую мощность}, если между этими множествами можно установить взаимно-однозначное соответствие. В этом случае говорят, что множества \(A\) и \(B\) \textbf{изоморфны}, имеют одинаковую \textbf{мощность}, или что они \textbf{равномощны}, и обозначают \(|A| = |B|\).
+
+Множество \(A\) называется \textbf{конечным}, если у него нет равномощного собственного подмножества:
+\[
+    \forall B: B \subseteq A \land |B| = |A| \implies B = A.
+\]
+Для конечного множества используется запись \(|A| < \infty\).
+
+Множество \textbf{бесконечно} тогда и только тогда, когда оно имеет одинаковую мощность с некоторым своим подмножеством, не совпадающим с самим этим множеством:
+\[
+    \exists B: B \subseteq A \land |B| = |A| \land B = A.
+\]
+То есть бесконечное множество равномощно некоторому своему собственному подмножеству. Для бесконечного множества используется запись \(|A| = \infty\).
+
+Множество \(X\) называется \textbf{счетным}, если его мощность равна мощности множества натуральных чисел, т. е. \(|X| = |\mathbb{N}|\).
+
+Говорят, что множество \(X\) -- множество \textbf{мощности континуума}, если его мощность равна мощности множества точек на отрезке \([0, 1]\).
+
+Теорема Кантора о несчетности:
+
+Отрезок \([0, 1]\) несчетен, т. е. \(|[0, 1]| > |\mathbb{N}|\).
+
+\subsection{Операции над множествами}
+
+\textbf{Объединением} двух множеств называется множество, содержащее все элементы обоих множеств:
+\[
+    A \cup B = \{x \mid x \in A \lor x \in B\}.
+\]
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/set-combining.png}
+    \caption{Объединение двух множеств}
+\end{figure}
+
+\textbf{Пересечение} двух множеств называется множество, состоящее из элементов входящих в каждое из множеств \(A\) и \(B\):
+\[
+    A \cap B = \{x \mid x \in A \land x \in B\}.
+\]
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/set-intersection.png}
+    \caption{Пересечение двух множеств}
+\end{figure}
+
+\textbf{Разностью} множеств \(A\) и \(B\) называется множество, состоящее из всех элементов множества \(A\), не содержащихся в множестве \(B\):
+\[
+    A \setminus B = \{x \mid x \in A \land x \notin B\}.
+\]
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/set-difference.png}
+    \caption{Разность двух множеств}
+\end{figure}
+
+\textbf{Симметрической разностью} множеств \(A\) и \(B\) называется множество, состоящее из всех элементов множества \(A\), не содержащихся в множестве \(B\), и всех элементов множества \(B\), не содержащихся в множестве \(A\):
+\[
+    A \symdiff B = \{x \mid (x \in A \land x \notin B) \lor (x \notin A \land x \in B)\}.
+\]
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/set-sym-difference.png}
+    \caption{Симметрическая разность двух множеств}
+\end{figure}
+
+\textbf{Дополнением} (дополнением до универсального множества \(U\)) множества \(A\) называется множество, состоящее из всех элементов универсального множества, не содержащихся в множестве \(A\):
+\[
+    \bar{A} = \{x \mid x \notin A\}.
+\]
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\textwidth]{images/set-complement.png}
+    \caption{Дополнение множества}
+\end{figure}
+
+\subsection{Свойства операций над множествами}
+
+\begin{property}[Идемпотентность]
+    \[
+        A \cup A = A;
+        \qquad
+        A \cap A = A.
+    \]
+\end{property}
+
+\begin{property}[Коммутативность]
+    \[
+        A \cup B = B \cup A;
+        \qquad
+        A \cap B = B \cap A.
+    \]
+\end{property}
+
+\begin{property}[Ассоциативность]
+    \[
+        A \cup (B \cup C) = (A \cup B) \cup C;
+        \qquad
+        A \cap (B \cap C) = (A \cap B) \cap C.
+    \]
+\end{property}
+
+\begin{property}[Дистрибутивность]
+    \[
+        A \cup (B \cap C) = (A \cup B) \cap (A \cup C);
+        \qquad
+        A \cap (B \cup C) = (A \cap B) \cup (A \cap C).
+    \]
+\end{property}
+
+\begin{property}[Поглощение]
+    \[
+        (A \cap B) \cup A = A;
+        \qquad
+        (A \cup B) \cap A = A.
+    \]
+\end{property}
+
+\begin{property}[Свойства нуля]
+    \[
+        A \cup \varnothing = A;
+        \qquad
+        A \cap \varnothing = \varnothing.
+    \]
+\end{property}
+
+\begin{property}[Свойства единицы]
+    \[
+        A \cup U = U;
+        \qquad
+        A \cap U = A.
+    \]
+\end{property}
+
+\begin{property}[Инволютивность]
+    \[
+        \bar{\bar{A}} = A.
+    \]
+\end{property}
+
+\begin{property}[Законы де Моргана]
+    \[
+        \overline{A \cap B} = \bar{A} \cup \bar{B};
+        \qquad
+        \overline{A \cup B} = \bar{A} \cap \bar{B}.
+    \]
+\end{property}
+
+\begin{property}[Свойства дополнения]
+    \[
+        A \cup \bar{A} = U;
+        \qquad
+        A \cap \bar{A} = \emptyset.
+    \]
+\end{property}
+
+\begin{property}[Свойство разности]
+    \[
+        A \setminus B = A \cap \bar{B}.
+    \]
+\end{property}
+
+\begin{property}[Свойство симметрической разности]
+    \[
+        A \symdiff B = (A \setminus B) \cap (B \setminus A).
+    \]
+\end{property}
+
+\subsection{Обобщенные тождества алгебры множеств}
+
+\begin{property}[Обобщенная дистрибутивность]
+    \[
+        A \cap \bigcup_{i = 1}^n B_i = \bigcup_{i = 1}^n (A \cap B_i);
+        \qquad
+        A \cup \bigcap_{i = 1}^n B_i = \bigcap_{i = 1}^n (A \cup B_i).
+    \]
+\end{property}
+
+\begin{property}[Обобщенный закон де Моргана]
+    \[
+        \overline{\bigcup_{i = 1}^n A_i} = \bigcap_{i = 1}^n \overline{A_i};
+        \qquad
+        \overline{\bigcap_{i = 1}^n A_i} = \bigcup_{i = 1}^n \overline{A_i}.
+    \]
+\end{property}
+
+\subsection{Булеан}
+
+Множество всех подмножеств \(A\) называется \textbf{булеаном} множества \(A\) и обозначается \(2^A\):
+\[
+    2^A = \{B \mid B \subseteq A\}.
+\]
+
+\begin{theorem*}
+    Если множество \(A\) конечно, то \(|2^A| = 2^{|A|}\).
+\end{theorem*}
+
+\subsection{Методы доказательств теоретико-множественных тождеств}
+
+\subsubsection{Метод двух включений}
+
+Пусть левая часть теоретико-множественного тождества определяет множество \(X\), а правая часть -- множество \(Y\). Чтобы доказать равенство множеств \(X\) и \(Y\), достаточно доказать два включения \(X \subseteq Y\) и \(Y \subseteq X\), т. е. доказать, что
+\[
+    \forall x \in X \implies x \in Y
+    \quad \land \quad
+    \forall x \in Y \implies x \in X.
+\]
+
+Докажем этим методом тождество
+\[
+    A \symdiff B = (A \cup B) \setminus (A \cap B).
+\]
+
+Пусть \(x \in A \symdiff B\). Тогда, согласно определению симметрической разности
+\begin{gather*}
+    x \in (A \symdiff B) \implies
+    x \in ((A \setminus B) \cup (B \setminus A)) \implies \\ \implies
+    (x \in A \land x \notin B) \lor (x \in B \land x \notin A) \implies \\ \implies
+    (x \in (A \cup B) \land x \notin (A \cap B)) \lor (x \in (A \cup B) \land x \notin (A \cap B)) \implies \\ \implies
+    x \in (A \cup B) \land x \notin (A \cap B) \implies
+    x \in ((A \cup B) \setminus (A \cap B)).
+\end{gather*}
+
+Таким образом доказано, что \(A \symdiff B \subseteq (A \cup B) \setminus (A \cap B)\). Докажем обратное включение \((A \cup B) \setminus (A \cap B) \subseteq A \symdiff B\):
+\begin{gather*}
+    x \in ((A \cup B) \setminus (A \cap B)) \implies
+    x \in (A \cup B) \land x \notin (A \cap B) \implies \\ \implies
+    (x \in A \land x \notin B) \lor (x \in B \land x \notin A) \implies \\ \implies
+    x \in ((A \setminus B) \cup (B \setminus A)) \implies
+    x \in (A \symdiff B).
+\end{gather*}
+
+Оба включения имеют место и тождество доказано.
+
+\subsubsection{Метод эквивалентных преобразований}
+
+Теоретико-множественные тождества можно доказывать, используя свойства операций над множествами. Для этого нужно преобразовать левую часть в правую, или правую -- в левую, или правую и левую часть в некоторое третье выражение.
+
+Докажем этим методом тождество:
+\[
+    (A \cap B) \symdiff (A \cap C) = A \cap (B \symdiff C).
+\]
+
+Преобразуем левую часть к правой:
+\begin{gather*}
+    (A \cap B) \symdiff (A \cap C) = \\ =
+    ((A \cap B) \cup (A \cap C)) \cap \overline{(A \cap B) \cap (A \cap C)} = \\ =
+    (A \cap (B \cup C)) \cap (\overline{A \cap B} \cup \overline{A \cap C}) = \\ =
+    (A \cap (B \cup C)) \cap (\bar{A} \cup \bar{B} \cup \bar{A} \cup \bar{C}) = \\ =
+    (A \cap (B \cup C)) \cap (\bar{A} \cup \bar{B} \cup \bar{C}) = \\ =
+    ((A \cap (B \cup C)) \cap \bar{A}) \cup ((A \cap (B \cup C)) \cap (\bar{B} \cup \bar{C})) = \\ =
+    (B \cup C) \cap (A \cap (\bar{B} \cup \bar{C})) = \\ =
+    (A \cap (B \cup C)) \cap (A \cap (\overline{B \cap C})) = \\ =
+    A \cap ((B \cup C) \cap (\overline{B \cap C})) = \\ =
+    A \cap (B \symdiff C).
+\end{gather*}
+
+\subsubsection{Метод характеристических функций}
+
+Характеристическая функция \(\chi_A\) множества \(A\) для \(x \in U\) определяется следующим образом:
+\[
+    \begin{dcases}
+        \chi_A(x) = 1, \quad x \in A \\
+        \chi_A(x) = 0, \quad x \notin A
+    \end{dcases}
+\]
+Для характеристической функции справедливы следующие тождества:
+\begin{enumerate}
+    \item \(\chi_A^2(x) = \chi_A(x)\);
+    \item \(\chi_{A \cap B}(x) = \chi_A(x) \cdot \chi_B(x)\);
+    \item \(\chi_{A \cup B}(x) = \chi_A(x) + \chi_B(x) - \chi_A(x) \cdot \chi_B(x)\);
+    \item \(\chi_{\bar{A}} = 1 - \chi_A(x)\);
+    \item \(\chi_{A \setminus B}(x) = \chi_A(x) - \chi_A(x) \cdot \chi_B(x)\);
+    \item \(\chi_{A \symdiff B} = \chi_A(x) + \chi_B(x) - 2 \cdot \chi_A(x) \cdot \chi_B(x)\).
+\end{enumerate}
+
+Докажем этим методом тождество
+\[
+    (A \symdiff B) \cap C = (A \cap C) \symdiff (B \cap C).
+\]
+
+С одной стороны,
+\begin{gather*}
+    \chi_{(A \symdiff B) \cap C}(x) =
+    \chi_{(A \symdiff B)}(x) \chi_C(x) = \\ =
+    \big(\chi_A(x) + \chi_B(x) - 2 \chi_A(x) \chi_B(x)\big) \chi_C(x) = \\ =
+    \chi_A(x) \chi_C(x) + \chi_B(x) \chi_C(x) - 2 \chi_A(x) \chi_B(x) \chi_C(x).
+\end{gather*}
+
+С другой стороны,
+\begin{gather*}
+    \chi_{(A \cap C) \symdiff (B \cap C)}(x) =
+    \chi_{(A \cap C)}(x) + \chi_{(B \cap C)}(x) - 2 \chi_{(A \cap C)}(x) \chi_{(B \cap C)}(x) = \\ =
+    \chi_A(x) \chi_C(x) + \chi_B(x) \chi_C(x) - 2 \chi_A(x) \chi_C(x) \chi_B(x) \chi_C(x) = \\ =
+    \chi_A(x) \chi_C(x) + \chi_B(x) \chi_C(x) - 2 \chi_A(x) \chi_B(x) \chi_C(x).
+\end{gather*}
+
+Так как \(\chi_{(A \symdiff B) \cap C}(x) = \chi_{(A \cap C) \symdiff (B \cap C)}(x)\), тождество доказано.
+
+\end{document}

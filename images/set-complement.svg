@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="900"
+   height="650"
+   viewBox="0 0 238.125 171.97916"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="set-complement.svg"
+   inkscape:version="1.2.1 (9c6d41e, 2022-07-14)"
+   inkscape:export-filename="set-complement.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.5946522"
+     inkscape:cx="412.00554"
+     inkscape:cy="570.08113"
+     inkscape:window-width="1920"
+     inkscape:window-height="1052"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:1.6758;stroke-dasharray:none"
+       id="path376"
+       cx="153.16573"
+       cy="98.447845"
+       r="47.203503" />
+    <path
+       style="display:inline;opacity:0.5;fill:#228b22;stroke:none;stroke-width:4.45264;stroke-linejoin:bevel;stroke-miterlimit:0;stroke-dasharray:none"
+       d="M 10.797484,98.553755 V 32.258002 H 119.06251 227.32752 V 98.553755 164.84951 H 119.06251 10.797484 Z M 162.84321,145.6931 c 19.48685,-3.96584 34.27532,-18.90323 37.96964,-38.35198 0.84907,-4.46998 0.86963,-13.470283 0.0407,-17.797184 -5.09388,-26.587505 -30.64577,-43.671595 -57.28659,-38.302009 -19.09702,3.849095 -34.06447,19.053686 -37.6773,38.274254 -1.01512,5.400493 -0.6778,16.250899 0.65673,21.124699 4.26642,15.58132 15.51828,27.82554 30.56032,33.25557 7.66358,2.76648 17.57224,3.45821 25.73653,1.79665 z"
+       id="path3532" />
+    <text
+       xml:space="preserve"
+       style="font-size:25.4px;line-height:1.25;font-family:'Latin Modern Math';-inkscape-font-specification:'Latin Modern Math';stroke-width:0.264583"
+       x="155.67879"
+       y="77.928131"
+       id="text1240"><tspan
+         sodipodi:role="line"
+         id="tspan1238"
+         style="font-size:25.4px;stroke-width:0.264583"
+         x="155.67879"
+         y="77.928131">A</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:25.4px;line-height:1.25;font-family:'Latin Modern Math';-inkscape-font-specification:'Latin Modern Math';stroke-width:0.264583"
+       x="109.5502"
+       y="23.696716"
+       id="text1240-9"><tspan
+         sodipodi:role="line"
+         id="tspan1238-0"
+         style="font-size:25.4px;stroke-width:0.264583"
+         x="109.5502"
+         y="23.696716">U</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:19.7556px;line-height:1.25;font-family:'Latin Modern Math';-inkscape-font-specification:'Latin Modern Math';stroke-width:0.264583"
+       x="35.150101"
+       y="28.920965"
+       id="text1133"><tspan
+         sodipodi:role="line"
+         id="tspan1131"
+         style="stroke-width:0.264583"
+         x="35.150101"
+         y="28.920965" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:19.7556px;line-height:1.25;font-family:'Latin Modern Math';-inkscape-font-specification:'Latin Modern Math';stroke-width:0.264583"
+       x="12.458262"
+       y="143.71495"
+       id="text4266"><tspan
+         sodipodi:role="line"
+         id="tspan4264"
+         style="stroke-width:0.264583"
+         x="12.458262"
+         y="143.71495" /></text>
+    <rect
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:2.64599;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:0"
+       id="rect1082"
+       width="216.53003"
+       height="132.59151"
+       x="10.797483"
+       y="32.257999"
+       ry="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:25.4px;line-height:1.25;font-family:'Latin Modern Math';-inkscape-font-specification:'Latin Modern Math';stroke-width:0.264583"
+       x="19.7523"
+       y="156.48416"
+       id="text1982"><tspan
+         sodipodi:role="line"
+         id="tspan1980"
+         style="font-size:25.4px;stroke-width:0.264583"
+         x="19.7523"
+         y="156.48416">Ā</tspan></text>
+  </g>
+</svg>
