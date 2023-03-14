@@ -28,7 +28,7 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.38943511"
-     inkscape:cx="826.83865"
+     inkscape:cx="829.40647"
      inkscape:cy="595.73468"
      inkscape:window-width="1440"
      inkscape:window-height="872"
@@ -45,13 +45,13 @@
     <circle
        style="fill:#000000;fill-opacity:0;stroke:none;stroke-width:1.85208;stroke-linecap:square;stroke-miterlimit:0"
        id="path234"
-       cx="17.354193"
+       cx="21.058363"
        cy="144.27272"
        r="4.7192793" />
     <circle
        style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.85208;stroke-linecap:square;stroke-miterlimit:0"
        id="path1552"
-       cx="22.073469"
+       cx="25.777639"
        cy="148.992"
        r="4.7192788" />
     <circle
@@ -81,12 +81,12 @@
     <circle
        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.85208;stroke-linecap:square;stroke-miterlimit:0"
        id="path1552-9"
-       cx="22.073469"
+       cx="25.777639"
        cy="44.538609"
        r="4.7192788" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1.85208;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
-       d="M 22.073469,43.594752 V 148.992"
+       d="M 25.777638,43.594752 V 148.992"
        id="path4390" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1.85208;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
@@ -203,24 +203,24 @@
     <text
        xml:space="preserve"
        style="font-size:19.7556px;line-height:1.25;font-family:'Latin Modern Math';-inkscape-font-specification:'Latin Modern Math';stroke-width:0.264583"
-       x="17.144445"
+       x="20.848616"
        y="172.5784"
        id="text12184"><tspan
          sodipodi:role="line"
          id="tspan12182"
          style="stroke-width:0.264583"
-         x="17.144445"
+         x="20.848616"
          y="172.5784">0</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:19.7556px;line-height:1.25;font-family:'Latin Modern Math';-inkscape-font-specification:'Latin Modern Math';stroke-width:0.264583"
-       x="17.452417"
+       x="21.156588"
        y="34.109444"
        id="text12238"><tspan
          sodipodi:role="line"
          id="tspan12236"
          style="stroke-width:0.264583"
-         x="17.452417"
+         x="21.156588"
          y="34.109444">1</tspan></text>
     <text
        xml:space="preserve"
@@ -357,25 +357,25 @@
     <text
        xml:space="preserve"
        style="font-size:19.7556px;line-height:1.25;font-family:'Latin Modern Math';-inkscape-font-specification:'Latin Modern Math';stroke-width:0.264583"
-       x="4.4415994"
+       x="1.5869297"
        y="200.77361"
        id="text22580"><tspan
          sodipodi:role="line"
          id="tspan22578"
          style="stroke-width:0.264583"
-         x="4.4415994"
-         y="200.77361">n=1</tspan></text>
+         x="1.5869297"
+         y="200.77361">n = 1</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:19.7556px;line-height:1.25;font-family:'Latin Modern Math';-inkscape-font-specification:'Latin Modern Math';stroke-width:0.264583"
-       x="193.12424"
-       y="202.46548"
+       x="186.5654"
+       y="200.77361"
        id="text23310"><tspan
          sodipodi:role="line"
          id="tspan23308"
          style="stroke-width:0.264583"
-         x="193.12424"
-         y="202.46548">n=2</tspan></text>
+         x="186.5654"
+         y="200.77361">n = 2</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:19.7556px;line-height:1.25;font-family:'Latin Modern Math';-inkscape-font-specification:'Latin Modern Math';stroke-width:0.264583"
