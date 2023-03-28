@@ -57,6 +57,11 @@
 \newtheorem{property}{Свойство}[subsection]
 \renewcommand{\theproperty}{\arabic{property}}
 
+\newtheorem{example}{Пример}[subsection]
+\renewcommand{\theexample}{\arabic{example}}
+
+\newtheorem*{example*}{Пример}
+
 \theoremstyle{definition}
 \newtheorem{definition}{Определение}[subsection]
 \renewcommand{\thedefinition}{\arabic{definition}}
@@ -101,9 +106,6 @@
     pdfkeywords={},
     pdfsubject={},
     pdflang={Russian}}
-
-% remove longtable margin
-\setlength\LTpre{0.25em}
 
 % Define math operators
 \DeclareMathOperator{\rang}{rang}
@@ -713,27 +715,27 @@
 
 Отношение \(R \subset A \times B\) задается с помощью прямоугольной таблицы (матрицы), состоящей из нулей и единиц, в которой строки -- первые координаты, а столбцы -- вторые, причем на пересечении \(i\)-ой строки и \(j\)-го столбца будет стоять \(1\), если имеется отношение \(a_i R b_j\), и \(0\) в противном случае.
 
-Рассмотрим пример. Пусть
-\[
-    A = \{1, 2, 3\},
-    \quad
-    B = \{2, 3, 4, 5, 6\}.
-\]
-
-Отношение
-\[
-    R = \{(1, 2), (1, 4), (2, 3), (3, 4), (3, 6)\}.
-\]
-
-Отношение можно записать в виде матрицы:
-\[
-    [R] =
-    \begin{pmatrix}
-        1 & 0 & 1 & 0 & 0 \\
-        0 & 1 & 0 & 0 & 0 \\
-        0 & 1 & 0 & 0 & 1
-    \end{pmatrix}
-\]
+\begin{example*}
+    Пусть
+    \[
+        A = \{1, 2, 3\},
+        \quad
+        B = \{2, 3, 4, 5, 6\}.
+    \]
+    Отношение
+    \[
+        R = \{(1, 2), (1, 4), (2, 3), (3, 4), (3, 6)\}.
+    \]
+    Отношение можно записать в виде матрицы:
+    \[
+        [R] =
+        \begin{pmatrix}
+            1 & 0 & 1 & 0 & 0 \\
+            0 & 1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 & 1
+        \end{pmatrix}
+    \]
+\end{example*}
 
 Матрица \textbf{универсального} (полного) отношения -- это квадратная матрица, состоящая только из единиц.
 
@@ -747,22 +749,23 @@
 
 Элементы множеств \(A\) и \(B\) изображаются в виде точек на плоскости (вершины двудольного графа), а упорядоченные пары --  линией со стрелкой (дуги ориентированного графа), которая направленна от \(a\) к \(b\), если \(aRb\).
 
-Рассмотрим пример. Пусть
-\[
-    A = \{1, 2, 3\},
-    \quad
-    B = \{2, 3, 4, 5, 6\}.
-\]
-
-Отношение
-\[
-    R = \{(1, 2), (1, 4), (2, 3), (3, 3), (3, 6)\}.
-\]
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{images/relation-graph.png}
-    \caption{Отношение в виде ориентированного графа}
-\end{figure}
+\begin{example*}
+    Пусть
+    \[
+        A = \{1, 2, 3\},
+        \quad
+        B = \{2, 3, 4, 5, 6\}.
+    \]
+    Отношение
+    \[
+        R = \{(1, 2), (1, 4), (2, 3), (3, 3), (3, 6)\}.
+    \]
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{images/relation-graph.png}
+        \caption{Отношение в виде ориентированного графа}
+    \end{figure}
+\end{example*}
 
 \subsection{Способы задания композиции отношений}
 
@@ -770,65 +773,67 @@
 
 Матрица композиции отношений \(R \circ S\) получается как произведение матриц отношений \(R\) и \(S\) с дальнейшей заменой отличных от нуля элементов единицами.
 
-Рассмотрим пример. Пусть
-\begin{gather*}
-    R = \{(1, 2), (2, 1), (2, 2), (3, 3), (3, 4)\},
-    \\
-    S = \{(1, 1), (1, 2), (2, 3), (2, 5), (3, 2), (3, 4), (4, 2), (4, 3)\}.
-\end{gather*}
-
-Тогда композиция равна
-\begin{gather*}
-    [R \circ S] =
-    \begin{pmatrix}
-        0 & 1 & 0 & 0 \\
-        1 & 1 & 0 & 0 \\
-        0 & 0 & 1 & 1
-    \end{pmatrix}
-    \times
-    \begin{pmatrix}
-        1 & 1 & 0 & 0 & 0 \\
-        0 & 0 & 1 & 0 & 1 \\
-        0 & 1 & 0 & 1 & 0 \\
-        0 & 1 & 1 & 0 & 0
-    \end{pmatrix}
-    = \\ =
-    \begin{pmatrix}
-        0 & 0 & 1 & 0 & 1 \\
-        1 & 1 & 1 & 0 & 1 \\
-        0 & 2 & 1 & 1 & 0
-    \end{pmatrix}
-    =
-    \begin{pmatrix}
-        0 & 0 & 1 & 0 & 1 \\
-        1 & 1 & 1 & 0 & 1 \\
-        0 & 1 & 1 & 1 & 0
-    \end{pmatrix}
-\end{gather*}
-
-\[
-    R \circ S = \{(1, 3), (1, 5), (2, 1), (2, 2), (2, 3), (2, 5), (3, 2), (3, 3), (3, 4)\}.
-\]
+\begin{example*}
+    Пусть
+    \begin{gather*}
+        R = \{(1, 2), (2, 1), (2, 2), (3, 3), (3, 4)\},
+        \\
+        S = \{(1, 1), (1, 2), (2, 3), (2, 5), (3, 2), (3, 4), (4, 2), (4, 3)\}.
+    \end{gather*}
+    Тогда композиция равна
+    \begin{gather*}
+        [R \circ S] =
+        \begin{pmatrix}
+            0 & 1 & 0 & 0 \\
+            1 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 1
+        \end{pmatrix}
+        \times
+        \begin{pmatrix}
+            1 & 1 & 0 & 0 & 0 \\
+            0 & 0 & 1 & 0 & 1 \\
+            0 & 1 & 0 & 1 & 0 \\
+            0 & 1 & 1 & 0 & 0
+        \end{pmatrix}
+        = \\ =
+        \begin{pmatrix}
+            0 & 0 & 1 & 0 & 1 \\
+            1 & 1 & 1 & 0 & 1 \\
+            0 & 2 & 1 & 1 & 0
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            0 & 0 & 1 & 0 & 1 \\
+            1 & 1 & 1 & 0 & 1 \\
+            0 & 1 & 1 & 1 & 0
+        \end{pmatrix}
+    \end{gather*}
+    \[
+        R \circ S = \{(1, 3), (1, 5), (2, 1), (2, 2), (2, 3), (2, 5), (3, 2), (3, 3), (3, 4)\}.
+    \]
+\end{example*}
 
 \subsubsection{С помощью ориентированного графа}
 
 Пусть \(R \subset A \times B\) и \(S \subset B \times C\). Чтобы получить граф \(T = R \circ S\), надо к графу отношения \(R\) добавить граф отношения \(S\). Граф композиции отношений получим, если исключим вершины, которые являются элементами множества \(B\).
 
-Рассмотрим пример. Пусть
-\begin{gather*}
-    R = \{(1, 2), (2, 1), (2, 2), (3, 3), (3, 4)\}, \\
-    S = \{(1, 1), (1, 2), (2, 3), (2, 5), (3, 2), (3, 4), (4, 2), (4, 3)\}.
-\end{gather*}
+\begin{example*}
+    Пусть
+    \begin{gather*}
+        R = \{(1, 2), (2, 1), (2, 2), (3, 3), (3, 4)\}, \\
+        S = \{(1, 1), (1, 2), (2, 3), (2, 5), (3, 2), (3, 4), (4, 2), (4, 3)\}.
+    \end{gather*}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{images/composition-graph.png}
-    \caption{Композиция в виде ориентированного графа}
-\end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/composition-graph.png}
+        \caption{Композиция в виде ориентированного графа}
+    \end{figure}
 
-\[
-    R \circ S = \{(1, 3), (1, 5), (2, 1), (2, 2), (2, 3), (2, 5), (3, 2), (3, 3), (3, 4)\}.
-\]
+    \[
+        R \circ S = \{(1, 3), (1, 5), (2, 1), (2, 2), (2, 3), (2, 5), (3, 2), (3, 3), (3, 4)\}.
+    \]
+\end{example*}
 
 \subsection{Свойства бинарных отношений}
 
@@ -965,12 +970,15 @@
     x = y.
 \]
 
-Рассмотрим пример. Отношение равенства \(x = y\) является эквивалентностью на любом множестве \(A\), так как оно
-\begin{itemize}
-    \item рефлексивно (\(x = x\));
-    \item симметрично (\(x = y \implies y = x\));
-    \item транзитивно (\(x = y, y = z \implies x = z\)).
-\end{itemize}
+\begin{example*}
+    Отношение равенства \(x = y\) является эквивалентностью на любом множестве \(A\), так как оно
+    \begin{itemize}
+        \item рефлексивно (\(x = x\));
+        \item симметрично (\(x = y \implies y = x\));
+        \item транзитивно (\(x = y, y = z \implies x = z\)).
+    \end{itemize}
+\end{example*}
+
 
 \subsection{Классы эквивалентности}
 
@@ -1037,47 +1045,47 @@
 
 В таблице \ref{tab:simplest-logical-connectives} представлены простейшие логические связки.
 
-\begin{table}[H]
-    \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{|c|c|c|}
-        \hline
-        \textbf{Название} & \textbf{Прочтение}          & \textbf{Обозначение} \\
-        \hline
-        отрицание         & не                          & \(\lnot\)            \\
-        \hline
-        конъюнкция        & и                           & \(\land\)            \\
-        \hline
-        дизъюнкция        & или                         & \(\lor\)             \\
-        \hline
-        импликация        & если, то                    & \(\to\)              \\
-        \hline
-        эквивалентность   & тогда и только тогда, когда & \(\leftrightarrow\)  \\
-        \hline
-        \caption{Простейшие логические связки}
-        \label{tab:simplest-logical-connectives}
-    \end{longtable}
-\end{table}
+{
+\renewcommand*{\arraystretch}{1.5}
+\begin{longtable}{|c|c|c|}
+    \hline
+    \textbf{Название} & \textbf{Прочтение}          & \textbf{Обозначение} \\
+    \hline
+    отрицание         & не                          & \(\lnot\)            \\
+    \hline
+    конъюнкция        & и                           & \(\land\)            \\
+    \hline
+    дизъюнкция        & или                         & \(\lor\)             \\
+    \hline
+    импликация        & если, то                    & \(\to\)              \\
+    \hline
+    эквивалентность   & тогда и только тогда, когда & \(\leftrightarrow\)  \\
+    \hline
+    \caption{Простейшие логические связки}
+    \label{tab:simplest-logical-connectives}
+\end{longtable}
+}
 
 Таблица \ref{tab:truth-table-slc} представляет собой таблицу истинности простейших логических связок.
 
-\begin{table}[H]
-    \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{|c|c|c|c|c|c|c|}
-        \hline
-        \(A\) & \(B\) & \(\bar{A}\) & \(A \land B\) & \(A \lor B\) & \(A \to B\) & \(A \leftrightarrow B\) \\
-        \hline
-        \(0\) & \(0\) & \(1\)       & \(0\)         & \(0\)        & \(1\)       & \(1\)                   \\
-        \hline
-        \(0\) & \(1\) & \(1\)       & \(0\)         & \(1\)        & \(1\)       & \(0\)                   \\
-        \hline
-        \(1\) & \(0\) & \(0\)       & \(0\)         & \(1\)        & \(0\)       & \(0\)                   \\
-        \hline
-        \(1\) & \(1\) & \(0\)       & \(1\)         & \(1\)        & \(1\)       & \(1\)                   \\
-        \hline
-        \caption{Таблица истинности простейших логических связок}
-        \label{tab:truth-table-slc}
-    \end{longtable}
-\end{table}
+{
+\renewcommand*{\arraystretch}{1.5}
+\begin{longtable}{|c|c|c|c|c|c|c|}
+    \hline
+    \(A\) & \(B\) & \(\bar{A}\) & \(A \land B\) & \(A \lor B\) & \(A \to B\) & \(A \leftrightarrow B\) \\
+    \hline
+    \(0\) & \(0\) & \(1\)       & \(0\)         & \(0\)        & \(1\)       & \(1\)                   \\
+    \hline
+    \(0\) & \(1\) & \(1\)       & \(0\)         & \(1\)        & \(1\)       & \(0\)                   \\
+    \hline
+    \(1\) & \(0\) & \(0\)       & \(0\)         & \(1\)        & \(0\)       & \(0\)                   \\
+    \hline
+    \(1\) & \(1\) & \(0\)       & \(1\)         & \(1\)        & \(1\)       & \(1\)                   \\
+    \hline
+    \caption{Таблица истинности простейших логических связок}
+    \label{tab:truth-table-slc}
+\end{longtable}
+}
 
 
 \subsubsection{Порядок выполнения логических операций}
@@ -1093,12 +1101,13 @@
 
 \subsubsection{Доказательство тождественной истинности}
 
-С помощью таблиц можно доказывать тождества. Рассмотрим пример. Необходимо доказать тождественную истинность формулы
-\[
-    \bar{A} \to (A \to B).
-\]
+\begin{example*}
+    Необходимо доказать тождественную истинность формулы
+    \[
+        \bar{A} \to (A \to B).
+    \]
 
-\begin{table}[H]
+    {
     \renewcommand*{\arraystretch}{1.5}
     \begin{longtable}{|c|c|c|c|c|}
         \hline
@@ -1114,28 +1123,29 @@
         \hline
         \caption{Пример доказательства тождественной истинности}
     \end{longtable}
-\end{table}
+    }
+\end{example*}
 
 \subsubsection{Другие логические связки}
 
 В таблице \ref{tab:other-logical-connectives} представлены другие логические связки, которые мы в дальнейшем будем использовать.
 
-\begin{table}[H]
-    \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{|c|c|c|}
-        \hline
-        \textbf{Название}   & \textbf{Прочтение}  & \textbf{Обозначение} \\
-        \hline
-        Штрих Шеффера       & антиконъюнкция      & \(|\)                \\
-        \hline
-        Стрелка Пирса       & антидизъюнкция      & \(\downarrow\)       \\
-        \hline
-        Сумма по модулю два & антиэквивалентность & \(\oplus\)           \\
-        \hline
-        \caption{Другие логические связки}
-        \label{tab:other-logical-connectives}
-    \end{longtable}
-\end{table}
+{
+\renewcommand*{\arraystretch}{1.5}
+\begin{longtable}{|c|c|c|}
+    \hline
+    \textbf{Название}   & \textbf{Прочтение}  & \textbf{Обозначение} \\
+    \hline
+    Штрих Шеффера       & антиконъюнкция      & \(|\)                \\
+    \hline
+    Стрелка Пирса       & антидизъюнкция      & \(\downarrow\)       \\
+    \hline
+    Сумма по модулю два & антиэквивалентность & \(\oplus\)           \\
+    \hline
+    \caption{Другие логические связки}
+    \label{tab:other-logical-connectives}
+\end{longtable}
+}
 
 Эти логические связки можно представить следующим образом:
 \[
@@ -1148,24 +1158,24 @@
 
 Таблица \ref{tab:truth-table-olc} представляет собой таблицу истинности других логических связок.
 
-\begin{table}[H]
-    \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{|c|c|c|c|c|}
-        \hline
-        \(A\) & \(B\) & \(A \mathop{|} B\) & \(A \downarrow B\) & \(A \oplus B\) \\
-        \hline
-        \(0\) & \(0\) & \(1\)              & \(1\)              & \(0\)          \\
-        \hline
-        \(0\) & \(1\) & \(1\)              & \(0\)              & \(1\)          \\
-        \hline
-        \(1\) & \(0\) & \(1\)              & \(0\)              & \(1\)          \\
-        \hline
-        \(1\) & \(1\) & \(0\)              & \(0\)              & \(0\)          \\
-        \hline
-        \caption{Таблица истинности других логических связок}
-        \label{tab:truth-table-olc}
-    \end{longtable}
-\end{table}
+{
+\renewcommand*{\arraystretch}{1.5}
+\begin{longtable}{|c|c|c|c|c|}
+    \hline
+    \(A\) & \(B\) & \(A \mathop{|} B\) & \(A \downarrow B\) & \(A \oplus B\) \\
+    \hline
+    \(0\) & \(0\) & \(1\)              & \(1\)              & \(0\)          \\
+    \hline
+    \(0\) & \(1\) & \(1\)              & \(0\)              & \(1\)          \\
+    \hline
+    \(1\) & \(0\) & \(1\)              & \(0\)              & \(1\)          \\
+    \hline
+    \(1\) & \(1\) & \(0\)              & \(0\)              & \(0\)          \\
+    \hline
+    \caption{Таблица истинности других логических связок}
+    \label{tab:truth-table-olc}
+\end{longtable}
+}
 
 \begin{note*}
     Таблицы истинности содержат \(2^n\) строк, где \(n\) -- число простых логических высказываний.
@@ -1173,8 +1183,11 @@
 
 \subsection{Логические отношения}
 
-Отношение следствия: из \(A\) следует \(B\), если \(B\) истинно всякий раз, когда истинно \(A\). Рассмотрим высказывания \(A \leftrightarrow B\), \(A \to B\), \(A \lor B\):
-\begin{table}[H]
+Отношение следствия: из \(A\) следует \(B\), если \(B\) истинно всякий раз, когда истинно \(A\).
+
+\begin{example*}
+    Рассмотрим высказывания \(A \leftrightarrow B\), \(A \to B\), \(A \lor B\):
+    {
     \renewcommand*{\arraystretch}{1.5}
     \begin{longtable}{|c|c|c|c|c|}
         \hline
@@ -1189,51 +1202,55 @@
         \(1\) & \(1\) & \(1\)                   & \(1\)       & \(1\)        \\
         \hline
     \end{longtable}
-\end{table}
+    }
+    Из \(A \leftrightarrow B\) следует \(A \to B\), однако из \(A \leftrightarrow B\) не следует \(A \lor B\).
+\end{example*}
 
 Два составных высказывания \textbf{эквивалентны}, если они имеют одинаковые истинностные значения на одинаковых наборах, т. е. последние столбцы их таблиц истинности должны совпадать.
 
-Рассмотрим пример. Проверим, являются ли высказывания \(A \to B\) и \(\bar{A} \lor B\) эквивалентными:
+\begin{example*}
+    Проверим, являются ли высказывания \(A \to B\) и \(\bar{A} \lor B\) эквивалентными:
 
-\begin{minipage}[c]{0.5\textwidth}
-    \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{|c|c|c|}
-        \hline
-        \(A\) & \(B\) & \(A \to B\) \\
-        \hline
-        \(0\) & \(0\) & \(1\)       \\
-        \hline
-        \(0\) & \(1\) & \(1\)       \\
-        \hline
-        \(1\) & \(0\) & \(0\)       \\
-        \hline
-        \(1\) & \(1\) & \(1\)       \\
-        \hline
-    \end{longtable}
-\end{minipage}
-\begin{minipage}[c]{0.5\textwidth}
-    \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{|c|c|c|c|}
-        \hline
-        \(A\) & \(B\) & \(\bar{A}\) & \(\bar{A} \lor B\) \\
-        \hline
-        \(0\) & \(0\) & \(1\)       & \(1\)              \\
-        \hline
-        \(0\) & \(1\) & \(1\)       & \(1\)              \\
-        \hline
-        \(1\) & \(0\) & \(0\)       & \(0\)              \\
-        \hline
-        \(1\) & \(1\) & \(0\)       & \(1\)              \\
-        \hline
-    \end{longtable}
-\end{minipage}
+    \begin{minipage}[c]{0.5\textwidth}
+        \renewcommand*{\arraystretch}{1.5}
+        \begin{longtable}{|c|c|c|}
+            \hline
+            \(A\) & \(B\) & \(A \to B\) \\
+            \hline
+            \(0\) & \(0\) & \(1\)       \\
+            \hline
+            \(0\) & \(1\) & \(1\)       \\
+            \hline
+            \(1\) & \(0\) & \(0\)       \\
+            \hline
+            \(1\) & \(1\) & \(1\)       \\
+            \hline
+        \end{longtable}
+    \end{minipage}
+    \begin{minipage}[c]{0.5\textwidth}
+        \renewcommand*{\arraystretch}{1.5}
+        \begin{longtable}{|c|c|c|c|}
+            \hline
+            \(A\) & \(B\) & \(\bar{A}\) & \(\bar{A} \lor B\) \\
+            \hline
+            \(0\) & \(0\) & \(1\)       & \(1\)              \\
+            \hline
+            \(0\) & \(1\) & \(1\)       & \(1\)              \\
+            \hline
+            \(1\) & \(0\) & \(0\)       & \(0\)              \\
+            \hline
+            \(1\) & \(1\) & \(0\)       & \(1\)              \\
+            \hline
+        \end{longtable}
+    \end{minipage}
 
-\vspace*{14pt}
+    \vspace*{1em}
 
-Итого получим, что
-\[
-    A \to B \equiv \bar{A} \lor B.
-\]
+    Итого получим, что
+    \[
+        A \to B \equiv \bar{A} \lor B.
+    \]
+\end{example*}
 
 \subsection{Варианты импликации}
 
@@ -1248,28 +1265,28 @@
 
 Таблица \ref{tab:truth-table-implication} представляет собой таблицу истинности этих вариантов импликации.
 
-\begin{table}[H]
-    \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{|c|c|c|c|c|c|c|c|}
-        \hline
-        \(A\) & \(B\) & \(\bar{A}\) & \(\bar{B}\) & \(A \to B\) & \(B \to A\) & \(\bar{A} \to \bar{B}\) & \(\bar{B} \to \bar{A}\) \\
-        \hline
-        \(0\) & \(0\) & \(1\)       & \(1\)       & \(1\)       & \(1\)       & \(1\)                   & \(1\)                   \\
-        \hline
-        \(0\) & \(1\) & \(1\)       & \(0\)       & \(1\)       & \(0\)       & \(0\)                   & \(1\)                   \\
-        \hline
-        \(1\) & \(0\) & \(0\)       & \(1\)       & \(0\)       & \(1\)       & \(1\)                   & \(0\)                   \\
-        \hline
-        \(1\) & \(1\) & \(0\)       & \(0\)       & \(1\)       & \(1\)       & \(1\)                   & \(1\)                   \\
-        \hline
-        \caption{Таблица истинности вариантов импликации}
-        \label{tab:truth-table-implication}
-    \end{longtable}
-\end{table}
+{
+\renewcommand*{\arraystretch}{1.5}
+\begin{longtable}{|c|c|c|c|c|c|c|c|}
+    \hline
+    \(A\) & \(B\) & \(\bar{A}\) & \(\bar{B}\) & \(A \to B\) & \(B \to A\) & \(\bar{A} \to \bar{B}\) & \(\bar{B} \to \bar{A}\) \\
+    \hline
+    \(0\) & \(0\) & \(1\)       & \(1\)       & \(1\)       & \(1\)       & \(1\)                   & \(1\)                   \\
+    \hline
+    \(0\) & \(1\) & \(1\)       & \(0\)       & \(1\)       & \(0\)       & \(0\)                   & \(1\)                   \\
+    \hline
+    \(1\) & \(0\) & \(0\)       & \(1\)       & \(0\)       & \(1\)       & \(1\)                   & \(0\)                   \\
+    \hline
+    \(1\) & \(1\) & \(0\)       & \(0\)       & \(1\)       & \(1\)       & \(1\)                   & \(1\)                   \\
+    \hline
+    \caption{Таблица истинности вариантов импликации}
+    \label{tab:truth-table-implication}
+\end{longtable}
+}
 
 \subsection{Необходимое и достаточное условия}
 
-\begin{table}[H]
+{
     \renewcommand*{\arraystretch}{1.5}
     \begin{longtable}{|C{0.27\textwidth}|C{0.27\textwidth}|C{0.27\textwidth}|}
         \hline
@@ -1282,7 +1299,7 @@
         \(A\) является необходимым и достаточным условием для \(B\) & \(A\) имеет место тогда и только тогда, когда имеет место \(B\) & Двойная импликация, т. е. эквивалентность \(A \leftrightarrow B\) \\
         \hline
     \end{longtable}
-\end{table}
+}
 
 \subsection{Основные логические эквивалентности}
 
@@ -1445,25 +1462,25 @@
     |P_{2, n}| = 2^{2^n}.
 \]
 
-\begin{table}[H]
-    \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{|c|c|c|c|c|}
-        \hline
-        \(x_1\)    & \(\ldots\) & \(x_{n - 1}\) & \(x_n\)    & \(f(x_1, \ldots x_n)\) \\
-        \hline
-        \(0\)      & \(\ldots\) & \(0\)         & \(0\)      & \(f(0, \ldots, 0, 0)\) \\
-        \hline
-        \(0\)      & \(\ldots\) & \(0\)         & \(1\)      & \(f(0, \ldots, 0, 1)\) \\
-        \hline
-        \(0\)      & \(\ldots\) & \(1\)         & \(0\)      & \(f(0, \ldots, 1, 0)\) \\
-        \hline
-        \(\ldots\) & \(\ldots\) & \(\ldots\)    & \(\ldots\) & \(\ldots\)             \\
-        \hline
-        \(1\)      & \(\ldots\) & \(1\)         & \(1\)      & \(f(1, \ldots, 1, 1)\) \\
-        \hline
-        \caption{Таблица булевых функций}
-    \end{longtable}
-\end{table}
+{
+\renewcommand*{\arraystretch}{1.5}
+\begin{longtable}{|c|c|c|c|c|}
+    \hline
+    \(x_1\)    & \(\ldots\) & \(x_{n - 1}\) & \(x_n\)    & \(f(x_1, \ldots x_n)\) \\
+    \hline
+    \(0\)      & \(\ldots\) & \(0\)         & \(0\)      & \(f(0, \ldots, 0, 0)\) \\
+    \hline
+    \(0\)      & \(\ldots\) & \(0\)         & \(1\)      & \(f(0, \ldots, 0, 1)\) \\
+    \hline
+    \(0\)      & \(\ldots\) & \(1\)         & \(0\)      & \(f(0, \ldots, 1, 0)\) \\
+    \hline
+    \(\ldots\) & \(\ldots\) & \(\ldots\)    & \(\ldots\) & \(\ldots\)             \\
+    \hline
+    \(1\)      & \(\ldots\) & \(1\)         & \(1\)      & \(f(1, \ldots, 1, 1)\) \\
+    \hline
+    \caption{Таблица булевых функций}
+\end{longtable}
+}
 
 \subsection{Существенные и несущественные переменные}
 
@@ -1479,39 +1496,43 @@
 
 В этом случае \(x_i\) называют \textbf{существенной} переменной, в противном случае \(x_i\) называют \textbf{несущественной} (фиктивной) переменной.
 
-Рассмотрим пример.
+\begin{example*}
+    Рассмотрим следующую таблицу истинности:
 
-\begin{table}[H]
-    \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{|c|c|c|c|}
-        \hline
-        \(x_1\) & \(x_2\) & \(f_1\) & \(f_2\) \\
-        \hline
-        \(0\)   & \(0\)   & \(0\)   & \(1\)   \\
-        \hline
-        \(0\)   & \(1\)   & \(0\)   & \(1\)   \\
-        \hline
-        \(1\)   & \(0\)   & \(1\)   & \(0\)   \\
-        \hline
-        \(1\)   & \(1\)   & \(1\)   & \(0\)   \\
-        \hline
-    \end{longtable}
-\end{table}
+    \vspace*{1em}
 
-В данном случае \(x_1\) -- существенная переменная, а \(x_2\) -- несущественная, поскольку
-\begin{gather*}
-    f_1(0, 0) = f_1(0, 1),
-    \quad
-    f_1(1, 0) = f_1(1, 1).
-    \\
-    f_2(0, 0) = f_2(0, 1),
-    \quad
-    f_2(1, 0) = f_2(1, 1).
-\end{gather*}
+    {
+        \renewcommand*{\arraystretch}{1.5}
+        \begin{longtable}{|c|c|c|c|}
+            \hline
+            \(x_1\) & \(x_2\) & \(f_1\) & \(f_2\) \\
+            \hline
+            \(0\)   & \(0\)   & \(0\)   & \(1\)   \\
+            \hline
+            \(0\)   & \(1\)   & \(0\)   & \(1\)   \\
+            \hline
+            \(1\)   & \(0\)   & \(1\)   & \(0\)   \\
+            \hline
+            \(1\)   & \(1\)   & \(1\)   & \(0\)   \\
+            \hline
+        \end{longtable}
+    }
+
+    В данном случае \(x_1\) -- существенная переменная, а \(x_2\) -- несущественная, поскольку
+    \begin{gather*}
+        f_1(0, 0) = f_1(0, 1),
+        \quad
+        f_1(1, 0) = f_1(1, 1).
+        \\
+        f_2(0, 0) = f_2(0, 1),
+        \quad
+        f_2(1, 0) = f_2(1, 1).
+    \end{gather*}
+\end{example*}
 
 \subsection{Булевы функции одной и нескольких переменной}
 
-\begin{table}[H]
+{
     \renewcommand*{\arraystretch}{1.5}
     \begin{longtable}{|c|c|c|c|c|}
         \hline
@@ -1523,9 +1544,9 @@
         \hline
         \caption{Булевы функции одной переменной}
     \end{longtable}
-\end{table}
+}
 
-\begin{table}[H]
+{
     \setlength{\tabcolsep}{3pt}
     \renewcommand*{\arraystretch}{1.5}
     \begin{longtable}{|c|c!{\vrule width 1.2pt}Sc|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
@@ -1542,11 +1563,11 @@
         \hline
         \caption{Булевы функции двух переменных}
     \end{longtable}
-\end{table}
+}
 
 \subsection{Мажоритарная функция}
 
-\begin{table}[H]
+{
     \renewcommand*{\arraystretch}{1.5}
     \begin{longtable}{|c|c|c|c|c|}
         \hline
@@ -1570,18 +1591,19 @@
         \hline
         \caption{Мажоритарная функция (функция голосования)}
     \end{longtable}
-\end{table}
+}
 
 \subsection{Реализация функций формулами}
 
 Так же, как составные высказывания строятся из более простых, с помощью логических операций, можно комбинировать булевы переменные с помощью булевых операций, получая булевы выражения, которые называются \textbf{формулами}. Всякой формуле однозначно соответствует некоторая функция, при этом говорят, что \textbf{формула реализует функцию}.
 
-Рассмотрим пример. Построим таблицу истинности для формулы
-\[
-    ((x_1 \land x_2) \oplus x_1) \oplus x_2.
-\]
+\begin{example*}
+    Построим таблицу истинности для формулы
+    \[
+        ((x_1 \land x_2) \oplus x_1) \oplus x_2.
+    \]
 
-\begin{table}[H]
+    {
     \renewcommand*{\arraystretch}{1.5}
     \begin{longtable}{|c|c|c|c|c|}
         \hline
@@ -1596,9 +1618,10 @@
         \(1\)   & \(1\)   & \(1\)             & \(0\)                          & \(1\)                                       \\
         \hline
     \end{longtable}
-\end{table}
+    }
 
-Формула \(((x_1 \land x_2) \oplus x_1) \oplus x_2\) реализует функцию \(f_8(x_1, x_2) = 0111\).
+    Формула \(((x_1 \land x_2) \oplus x_1) \oplus x_2\) реализует функцию \(f_8(x_1, x_2) = 0111\).
+\end{example*}
 
 \subsection{Равносильные формулы}
 
@@ -1611,22 +1634,24 @@
 
 Другими словами, булевы функции \(f\) и \(g\) называют равносильными, если их существенные переменные соответственно равны и на каждом наборе значений этих переменных функции \(f\) и \(g\) принимают равные значения.
 
-Рассмотрим пример. Пусть
-\[
-    f(x, y) = x \lor y,
-    \quad
-    g(x, y, z) = xz \lor x \bar{z} \lor yz \lor y \bar{z}.
-\]
+\begin{example*}
+    Пусть
+    \[
+        f(x, y) = x \lor y,
+        \quad
+        g(x, y, z) = xz \lor x \bar{z} \lor yz \lor y \bar{z}.
+    \]
 
-Упростим функцию \(g(x, y, z)\):
-\[
-    g(x, y, z) =
-    xz \lor x \bar{z} \lor yz \lor y \bar{z} =
-    x(z \lor \bar{z}) \lor y(z \lor \bar{z}) =
-    x \lor y.
-\]
+    Упростим функцию \(g(x, y, z)\):
+    \[
+        g(x, y, z) =
+        xz \lor x \bar{z} \lor yz \lor y \bar{z} =
+        x(z \lor \bar{z}) \lor y(z \lor \bar{z}) =
+        x \lor y.
+    \]
 
-Получили, что функции \(f(x, y)\) и \(g(x, y, z)\) равносильны.
+    Получили, что функции \(f(x, y)\) и \(g(x, y, z)\) равносильны.
+\end{example*}
 
 \subsection{Законы булевой алгебры}
 
@@ -1728,14 +1753,37 @@
 \]
 называется \textbf{двойственной} к функции \(f\).
 
-Рассмотрим примеры:
-\begin{enumerate}
-    \item \(0^* = \bar{0} = 1\);
-    \item \(1^* = \bar{1} = 0\);
-    \item \(x^* = \bar{\bar{x}} = x\) (т. к. \(x\) и функция, и переменная в данном случае);
-    \item \((x \land y)^* = \overline{\bar{x} \land \bar{y}} = x \lor y\);
-    \item \((x \lor y)^* = \overline{\bar{x} \lor \bar{y}} = x \land y\).
-\end{enumerate}
+\begin{example}
+    \[
+        0^* = \bar{0} = 1.
+    \]
+\end{example}
+
+\begin{example}
+    \[
+        1^* = \bar{1} = 0.
+    \]
+\end{example}
+
+\begin{example}
+    \[
+        x^* = \bar{\bar{x}} = x.
+    \]
+
+    Т. к. \(x\) в данном случае и функция, и переменная, мы применяем двойное отрицание.
+\end{example}
+
+\begin{example}
+    \[
+        (x \land y)^* = \overline{\bar{x} \land \bar{y}} = x \lor y.
+    \]
+\end{example}
+
+\begin{example}
+    \[
+        (x \lor y)^* = \overline{\bar{x} \lor \bar{y}} = x \land y.
+    \]
+\end{example}
 
 \subsection{Инволютивность двойственности}
 
@@ -1792,12 +1840,26 @@
 
 Конъюнкция элементарных дизъюнкций называется \textbf{конъюнктивной нормальной формой (КНФ)}.
 
-Примеры:
-\begin{itemize}
-    \item \((x \land \bar{y}) \lor (y \land z)\) -- ДНФ;
-    \item \((x \lor z \lor \bar{y}) \land (x \lor y) \land z\) -- КНФ;
-    \item \(x \land \bar{y}\) -- одновременно и КНФ, и ДНФ.
-\end{itemize}
+\begin{example}
+    ДНФ:
+    \[
+        (x \land \bar{y}) \lor (y \land z).
+    \]
+\end{example}
+
+\begin{example}
+    КНФ:
+    \[
+        (x \lor z \lor \bar{y}) \land (x \lor y) \land z.
+    \]
+\end{example}
+
+\begin{example}
+    Одновременно и КНФ, и ДНФ:
+    \[
+        x \land \bar{y}.
+    \]
+\end{example}
 
 \begin{theorem*}
     \newpar
@@ -1859,26 +1921,28 @@
 
 Каждый набор аргументов, на котором функция принимает значение \(1\), называется \textbf{конституентой единицы} функции.
 
-Рассмотрим пример нахождения СДНФ для \(x_1 \to x_2\):
+\begin{example*}
+    Найдем СДНФ для \(x_1 \to x_2\).
 
-\begin{table}[H]
-    \renewcommand{\arraystretch}{1.5}
-    \begin{longtable}{|c|c|c|c|}
-        \hline
-        \(x_1\) & \(x_2\) & \(x_1 \to x_2\) & элем. конъюнкции              \\
-        \hline
-        \(0\)   & \(0\)   & \(1\)           & \(\bar{x}_1 \land \bar{x}_2\) \\
-        \hline
-        \(0\)   & \(1\)   & \(1\)           & \(\bar{x}_1 \land x_2\)       \\
-        \hline
-        \(1\)   & \(0\)   & \(0\)           & \(x_1 \land \bar{x}_2\)       \\
-        \hline
-        \(1\)   & \(1\)   & \(1\)           & \(x_1 \land x_2\)             \\
-        \hline
-    \end{longtable}
-\end{table}
+        {
+            \renewcommand{\arraystretch}{1.5}
+            \begin{longtable}{|c|c|c|c|}
+                \hline
+                \(x_1\) & \(x_2\) & \(x_1 \to x_2\) & элем. конъюнкции              \\
+                \hline
+                \(0\)   & \(0\)   & \(1\)           & \(\bar{x}_1 \land \bar{x}_2\) \\
+                \hline
+                \(0\)   & \(1\)   & \(1\)           & \(\bar{x}_1 \land x_2\)       \\
+                \hline
+                \(1\)   & \(0\)   & \(0\)           & \(x_1 \land \bar{x}_2\)       \\
+                \hline
+                \(1\)   & \(1\)   & \(1\)           & \(x_1 \land x_2\)             \\
+                \hline
+            \end{longtable}
+        }
 
-СДНФ: \((\bar{x}_1 \land \bar{x}_2) \lor (\bar{x}_1 \land x_2) \lor (x_1 \land x_2)\).
+    СДНФ: \((\bar{x}_1 \land \bar{x}_2) \lor (\bar{x}_1 \land x_2) \lor (x_1 \land x_2)\).
+\end{example*}
 
 \subsection{Нахождение СКНФ}
 
@@ -1890,26 +1954,438 @@
 
 Каждый набор аргументов, на котором функция принимает значение \(0\), называется \textbf{конституентой нуля} функции.
 
-Рассмотрим пример нахождения СКНФ для \(x_1 \to x_2\):
+\begin{example}
+    Найдем СКНФ для \(x_1 \to x_2\).
 
-\begin{table}[H]
-    \renewcommand{\arraystretch}{1.5}
-    \begin{longtable}{|c|c|c|c|}
+        {
+            \renewcommand{\arraystretch}{1.5}
+            \begin{longtable}{|c|c|c|c|}
+                \hline
+                \(x_1\) & \(x_2\) & \(x_1 \to x_2\) & элем. дизъюнкции             \\
+                \hline
+                \(0\)   & \(0\)   & \(1\)           & \(x_1 \lor x_2\)             \\
+                \hline
+                \(0\)   & \(1\)   & \(1\)           & \(x_1 \lor \bar{x}_2\)       \\
+                \hline
+                \(1\)   & \(0\)   & \(0\)           & \(\bar{x}_1 \lor x_2\)       \\
+                \hline
+                \(1\)   & \(1\)   & \(1\)           & \(\bar{x}_1 \lor \bar{x}_2\) \\
+                \hline
+            \end{longtable}
+        }
+
+    СКНФ: \(\bar{x}_1 \lor x_2\).
+\end{example}
+
+\subsection{Замкнутые классы}
+
+Пусть
+\[
+    F = \{f_1, \ldots, f_m\}, f_i \in P_2 \; \forall i \in \overline{1, m}.
+\]
+
+Замыканием \(F\) называется множество всех булевых функций, реализуемых формулами над \(F\):
+\[
+    [F] = \{f \in P_2 \mid f = \text{func} \; F [F]\}.
+\]
+
+\subsection{Свойства замыкания}
+
+\begin{property}
+    \[
+        F \subset [F]
+    \]
+\end{property}
+
+\begin{property}[Идемпотентность]
+    \[
+        [[F]] = [F]
+    \]
+\end{property}
+
+\begin{property}[Монотонность]
+    \[
+        F_1 \subset F_2 \implies [F_1] \subset [F_2]
+    \]
+\end{property}
+
+\begin{property}
+    \[
+        ([F_1] \cup [F_2]) \subset [F_1 \cup F_2].
+    \]
+\end{property}
+
+Класс (множество) функций \(F\) называется \textbf{замкнутым}, если \([F] = F\).
+
+\subsection{Замкнутые классы}
+
+Класс функций, сохраняющих \(0\):
+\[
+    T_0 = \{f \in P_2 \mid f(0, \ldots, 0) = 0\}.
+\]
+
+Класс функций, сохраняющих \(1\):
+\[
+    T_1 = \{f \in P_2 \mid f(1, \ldots, 1) = 1\}.
+\]
+
+Класс самодвойственных функций:
+\[
+    S = \{f \in P_2 \mid f = f^*\}.
+\]
+
+Класс монотонных функций:
+\[
+    M = \{f \in P_2 \mid \forall \alpha, \beta : \alpha \leq \beta \implies f(\alpha) \leq f(\beta)\}.
+\]
+
+Класс линейных функций:
+\[
+    L = \{f \in P_2 \mid f(x_1, \ldots, x_n) = a_0 \oplus a_1 x_1 \oplus \ldots \oplus a_n x_n\}.
+\]
+
+\begin{theorem*}
+    Классы \(T_0\), \(T_1\), \(S\), \(M\), \(L\) -- замкнуты.
+\end{theorem*}
+
+\begin{example*}
+    Рассмотрим конъюнкцию и введем обозначение \(\psi(x, y) = x \land y\). Тогда
+    \begin{itemize}
+        \item \(\psi \in T_0\), т. к. \(0 \land 0 = 0\);
+        \item \(\psi \in T_1\), т. к. \(1 \land 1 = 1\);
+        \item \(\psi \notin S\), т. к. \(\psi(x, y) = \overline{\bar{x} \land \bar{y}} = x \lor y \neq \psi(x, y)\);
+        \item \(\psi \in M\), можно убедиться, построив таблицу истинности;
+        \item \(\psi \notin L\), можно убедиться, построив полином Жегалкина.
+    \end{itemize}
+\end{example*}
+
+\subsection{Полные системы функций}
+
+Класс функций \(F\) называется \textbf{полным}, если его замыкание совпадает с \(P_2\):
+\[
+    [F] = P_2.
+\]
+
+Другими словами, множество функции \(F\) образует полную систему, если любая булева функция реализуема в виде формулы над \(F\).
+
+\begin{theorem*}
+    Пусть заданы две системы функций
+    \[
+        F = \{f_1, \ldots, f_m\},
+        \quad
+        G = \{g_1, \ldots, g_k\}
+    \]
+    Тогда, если система \(F\) полна и все функции из \(F\) реализуемы формулами над \(G\), то система \(G\) также полна.
+\end{theorem*}
+
+\begin{example*}
+    Система \(\{\lor, \land, \neg\}\) полная, т. к. всякая булева функция (в силу того, что она имеет единственную СДНФ) может быть выражена через дизъюнкцию, конъюнкцию и отрицание. Тогда
+    \begin{itemize}
+        \item система \(\{\neg, \land\}\) полная, т. к.
+              \[
+                  x_1 \lor x_2 = \overline{\bar{x}_1 \land \bar{x}_2};
+              \]
+        \item система \(\{\neg, \lor\}\) полная, т. к.
+              \[
+                  x_1 \land x_2 = \overline{\bar{x}_1 \lor \bar{x}_2};
+              \]
+        \item система \(\{\mid\}\) полная, т. к.
+              \[
+                  \bar{x} = x \mid x,
+                  \quad
+                  x_1 \land x_2 = \overline{x_1 \mid x_2} = (x_1 \mid x_2) \mid (x_1 \mid x_2);
+              \]
+        \item система \(\{0, 1, \land, \oplus\}\) полная, т. к.
+              \[
+                  \bar{x} = x \plus 1.
+              \]
+    \end{itemize}
+\end{example*}
+
+\subsection{Полнота двойственной системы}
+
+\begin{theorem*}
+    Если система \(F = \{f_1, \ldots, f_m\}\) полна, то система \(F^* = \{f_1^*, \ldots, f_m^*\}\) также полна.
+\end{theorem*}
+
+\begin{example}
+    Система \(\{0, 1, \land, \oplus\}\) полна, следовательно, система \(\{1, 0, \lor, \leftrightarrow\}\) также полна.
+\end{example}
+
+\subsection{Теорема Поста}
+
+\begin{theorem*}
+    Система булевых функций \(F\) полна тогда и только тогда, когда она содержит:
+    \begin{itemize}
+        \item хотя бы одну функцию, не сохраняющую ноль;
+        \item хотя бы одну функцию, не сохраняющую единицу;
+        \item хотя бы одну несамодвойственную функцию;
+        \item хотя бы одну немонотонную функцию;
+        \item хотя бы одну нелинейную функцию.
+    \end{itemize}
+
+    \[
+        [F] = P_2
+        \iff
+        \overline{F \subset T_0 \lor F \subset T_1 \lor F \subset S \lor F \subset M \lor F \subset L}.
+    \]
+\end{theorem*}
+
+\begin{example}
+    Рассмотрим систему \(\{\lor, \land, \neg\}\):
+    {
+    \renewcommand*{\arraystretch}{1.5}
+    \begin{longtable}{|c|c|c|c|c|c|}
         \hline
-        \(x_1\) & \(x_2\) & \(x_1 \to x_2\) & элем. дизъюнкции             \\
+                          & \(T_0\) & \(T_1\) & \(S\) & \(M\) & \(L\) \\
         \hline
-        \(0\)   & \(0\)   & \(1\)           & \(x_1 \lor x_2\)             \\
+        \(\bar{x}\)       & \(-\)   & \(-\)   & \(+\) & \(-\) & \(+\) \\
         \hline
-        \(0\)   & \(1\)   & \(1\)           & \(x_1 \lor \bar{x}_2\)       \\
+        \(x_1 \land x_2\) & \(+\)   & \(+\)   & \(-\) & \(+\) & \(-\) \\
         \hline
-        \(1\)   & \(0\)   & \(0\)           & \(\bar{x}_1 \lor x_2\)       \\
-        \hline
-        \(1\)   & \(1\)   & \(1\)           & \(\bar{x}_1 \lor \bar{x}_2\) \\
+        \(x_1 \lor x_2\)  & \(+\)   & \(+\)   & \(-\) & \(+\) & \(-\) \\
         \hline
     \end{longtable}
-\end{table}
+    }
+    Так как в каждом столбике есть \(-\), система \(\{\lor, \land, \neg\}\) -- полная. Также очевидно, что \(\{\land, \neg\}\) и \(\lor, \neg\) являются полными, а значит являются базисами для исходной системы.
+\end{example}
 
-СКНФ: \(\bar{x}_1 \lor x_2\).
+\begin{example}
+    Рассмотрим систему \(\{\mid\}\):
+    {
+    \renewcommand*{\arraystretch}{1.5}
+    \begin{longtable}{|c|c|c|}
+        \hline
+        \(x\) & \(y\) & \(f(x, y) = x \mid y\) \\
+        \hline
+        \(0\) & \(0\) & \(1\)                  \\
+        \hline
+        \(0\) & \(1\) & \(1\)                  \\
+        \hline
+        \(1\) & \(0\) & \(1\)                  \\
+        \hline
+        \(1\) & \(1\) & \(0\)                  \\
+        \hline
+    \end{longtable}
+    }
 
+    \begin{enumerate}
+        \item \(f(0, 0) = 1 \implies f \notin T_0\);
+        \item \(f(1, 1) = 0 \implies f \notin T_1\);
+        \item \(f(0, 1) = 1, f_(1, 0) = 1 \implies f \notin S\);
+        \item \((0, 0) < (1, 1), f(0, 0) > f(1, 1) \implies f \notin M\);
+        \item \(f(x, y) = 1 \oplus xy \implies f \notin L\).
+    \end{enumerate}
+
+    {
+    \renewcommand*{\arraystretch}{1.5}
+    \begin{longtable}{|c|c|c|c|c|c|}
+        \hline
+                     & \(T_0\) & \(T_1\) & \(S\) & \(M\) & \(L\) \\
+        \hline
+        \(x \mid y\) & \(-\)   & \(-\)   & \(-\) & \(-\) & \(-\) \\
+        \hline
+    \end{longtable}
+    }
+
+    Следовательно, система \(\{|\}\) является полной по критерию Поста. Таким же образом можно доказать, что \({\downarrow}\) также является полной.
+\end{example}
+
+\begin{note*}
+    Число шефферовых функций от \(n\) переменных равно
+    \[
+        2^{2^n - 2} - 2^{2^{n - 1} - 1}.
+    \]
+\end{note*}
+
+\subsection{Одноместный предикат}
+
+\textbf{Одноместный предикат} \(P(x)\) -- это функция переменной \(x\), определенная на множестве \(M\) и принимающая значения на множестве \(\{0, 1\}\). Те значения переменной, на которых предикат принимает истинное значение, образуют \textbf{множество истинности предиката}. Так как предикаты принимают значения \(0\) и \(1\), то к ним применяются логические операции.
+
+\begin{example*}
+    Пусть даны предикаты \(P(x) = \text{<<\(x\) -- четное число>>}\) и \(Q(x) = \text{<<\(x\) кратно \(3\)>>}\), определенные на множестве \(M = \{1, 2, 3, 4, 5, 6, 7, 8, 9\}\). Необходимо найти область истинности предикатов:
+    \begin{enumerate}
+        \item \(P(x) \land Q(x)\);
+        \item \(P(x) \lor Q(x)\);
+        \item  \(\bar{P}(x)\);
+        \item \(P(x) \to Q(x)\).
+    \end{enumerate}
+    Решение:
+    \begin{enumerate}
+        \item \(I_{P \land Q} = I_P \cap I_Q = \{6\}\);
+        \item \(I_{P \lor Q} = I_P \cup I_Q = \{2, 3, 4, 6, 8 ,9\}\);
+        \item \(I_{\bar{P}} = \bar{I}_P = M \setminus I_P = \{1, 3, 5, 7, 9\}\);
+        \item \(I_{P \to Q} = \bar{I}_P \cup I_Q = \{1, 3, 5, 6, 7, 9\}\).
+    \end{enumerate}
+\end{example*}
+
+\subsection{n-местный предикат}
+
+\(n\)-местным предикатом называется функция \(n\) переменных \(P(x_1, \ldots, x_n)\), определенная на множестве \(M = M_1 \times \ldots \times M_n\) и принимающая на этом множестве одно из двух значений: истина или ложь:
+\[
+    P(x_1, \ldots, x_n) : M_1 \times \ldots \times M_n \to E_2.
+\]
+
+\subsection{Кванторные операции}
+
+Пусть \(P(x)\) -- одноместный предикат, определенный на множестве \(M\). Квантор общности \(\forall\) превращает предикат \(P(x)\) в высказывание:
+\[
+    \forall P(x) = \text{<<для всякого элемента \(x\) высказывание \(P(x)\) истинно>>}.
+\]
+
+Квантор существования \(\exists\) превращает предикат \(P(x)\) в высказывание
+\[
+    \exists P(x) = \text{<<существует элемент \(x\) такой, что высказывание \(P(x)\) истинно>>}.
+\]
+
+Операция приписывания к предикату квантора называется \textbf{навешиванием квантора}. Переменная, к которой квантор связывается квантором и называется \textbf{связанной переменной}. Переменная, не связанная квантором, называется \textbf{свободной переменной}.
+
+\subsection{Алфавит логики предикатов}
+
+\begin{enumerate}
+    \item предметные константы \(p\), \(q\), \(r\), \(\ldots\) (принимают значения \(0\) или \(1\));
+    \item предметные переменные \(x\), \(y\), \(z\), \(\ldots\), пробегающие значения некоторого множества \(M\);
+    \item функциональные переменные \(f\), \(g\), \(h\), \(\ldots\);
+    \item предикатные переменные \(P\), \(Q\), \(R\), \(\ldots\);
+    \item символы логических операций \(\land\), \(\lor\), \(\to\), \(\neg\);
+    \item кванторные символы \(\forall\), \(\exists\);
+    \item запятая, скобки.
+\end{enumerate}
+
+\subsection{Формулы логики предикатов}
+
+\noindent Определим понятие \textbf{терма}:
+\begin{enumerate}
+    \item Всякая предметная константа есть терм.
+    \item Всякая предметная переменная есть терм.
+    \item Если \(t_1, \ldots, t_n\) -- термы, а \(f\) -- функциональная переменная, то \(f(t_1, \ldots, t_n)\) -- есть терм.
+\end{enumerate}
+
+\noindent Определим понятие \textbf{формулы}:
+\begin{enumerate}
+    \item Если \(t_1, \ldots, t_n\) -- термы, \(\{x_1, \ldots, x_n\}\) -- множество всех переменных в термах \(t_1, \ldots, t_n\), \(P\) -- предикатная переменная, то \(P(t_1, \ldots, t_n)\) -- элементарная формула со свободными переменными \(x_1, \ldots, x_n\).
+    \item Если \(A\) -- формула, то \(\bar{A}\) -- формула. Свободные переменные формулы \(A\) являются свободными переменными формулы \(\bar{A}\).
+    \item Если \(A\) и \(B\) есть формулы, то \((A \land B)\), \((A \lor B)\), \((A \to B)\) тоже есть формулы. Их свободные переменные -- это свободные переменные формул \(A\) и \(B\).
+    \item Если \(A(x)\) -- формула с множеством свободных переменных \(\{x, x_1, \ldots, x_n\}\), то выражения \(\exists x \; A(x)\) и \(\forall x \; A(x)\) есть формулы. Переменные \(x_1, \ldots, x_n\) в этих формулах свободны, а переменная \(x\) связана квантором.
+\end{enumerate}
+
+При построении новых формул надо внимательно следить за тем, чтобы предметные переменные, свободные в одной формуле, были свободными и в других формулах. Тогда эти переменные будут свободными и в построенной формуле.
+
+Формула без свободных переменных называется \textbf{замкнутой}.
+
+При построении формул в логике предикатов действуют те же правила опускания скобок, что и в исчислении высказываний. Кванторы имеют высший приоритет.
+
+В формулах \(\exists x \; A(x)\) и \(\forall x \; A(x)\) формула \(A(x)\) есть область действия квантора.
+
+\begin{example*}
+    \newpar
+    \begin{itemize}
+        \item \(\forall x \; P(x)\) является формулой;
+        \item \(\exists x \; (Q(x) \to P(x, y))\) является формулой;
+        \item \(\exists x \; P(x, y) \lor Q(x)\) не является формулой, т. к. нет скобочек.
+    \end{itemize}
+\end{example*}
+
+\subsection{Равносильные формулы}
+
+Две формулы логики предикатов называются \textbf{равносильными} на области \(M\), если они принимают одинаковые значения для всех значений переменных из области \(M\).
+
+\textbf{Равносильные формулы} -- это формулы, равносильные на любой области.
+
+\begin{example}
+    \[
+        \overline{\forall x \; A(x)} = \exists x \; \overline{A(x)}.
+    \]
+\end{example}
+
+\begin{example}
+    \[
+        \overline{\exists x \; A(x)} = \forall x \; \overline{A(x)}.
+    \]
+\end{example}
+
+\begin{example}
+    \[
+        C \land \forall x \; B(x) = \forall x \; (C \land B(x)).
+    \]
+\end{example}
+
+\begin{example}
+    \[
+        C \lor \forall x \; B(x) = \forall x \; (C \lor B(x)).
+    \]
+\end{example}
+
+\begin{example}
+    \[
+        C \land \exists x \; B(x) = \exists x \; (C \land B(x)).
+    \]
+\end{example}
+
+\begin{example}
+    \[
+        C \lor \exists x \; B(x) = \exists x \; (C \lor B(x)).
+    \]
+\end{example}
+
+\begin{example}
+    \[
+        \forall x \; A(x) \land \forall x \; B(x) = \forall x \; (A(x) \land B(x)).
+    \]
+\end{example}
+
+\begin{example}
+    \[
+        \exists x \; A(x) \lor \exists x \; B(x) = \exists x \; (A(x) \lor B(x)).
+    \]
+\end{example}
+
+\begin{example}
+    \[
+        \exists x \; A(x) \land \exists x \; B(x) = \exists x \exists y \; (A(x) \land B(y)).
+    \]
+\end{example}
+
+\begin{example}
+    \[
+        \forall x \; A(x) \lor \forall x \; B(x) = \forall x \forall y \; (A(x) \lor B(y))
+    \]
+\end{example}
+
+\subsection{Предваренная нормальная форма}
+
+Предваренная нормальная форма имеет следующий вид:
+\[
+    Q_1 x_1 \ldots Q_n x_n \; B(x_1, \ldots, x_n),
+\]
+
+где \(Q_i\) -- один из кванторов, формула \(B(x_1, \ldots, x_n)\) не содержит кванторов.
+
+\begin{theorem*}
+    Любую формулу логики предикатов можно привести к предваренной нормальной форме.
+\end{theorem*}
+
+\begin{example*}
+    Необходимо привести формулу
+    \[
+        \overline{\forall x \; (P(x))} \lor \exists x \; (Q(x, y))
+    \]
+    к предварительной формуле.
+    \begin{gather*}
+        \overline{\forall x \; (P(x))} \lor \exists x \; (Q(x, y)) =
+        \exists x \; (\overline{P(x)}) \lor \exists x \; (Q(x, y)) = \\=
+        \exists x \; (\overline{P(x)} \lor Q(x, y)).
+    \end{gather*}
+\end{example*}
+
+\subsection{Общезначимость и выполнимость}
+
+Формула логики предикатов называется \textbf{выполнимой} в некоторой области \(M\), если существуют значения переменных, входящих в эту формулу и отнесенных к области \(M\), при которых формула принимает истинное значение. Формула \textbf{выполнима}, если существует область, на которой выполнима эта формула.
+
+Формула логики предикатов называется \textbf{тождественно истинной} в области \(M\), если для всех значений переменных из области \(M\) формула принимает истинное значение. Формула, тождественно истинная в любой области, называется \textbf{общезначимой} (логическим законом).
+
+\subsection{Проблема разрешимость в логике предикатов}
+
+Проблема разрешимость в логике предикатов формулируется следующим образом. Существуют ли алгоритмы, позволяющие определить общезначимость, выполнимость или тождественную ложность любой формулы логики предикатов? Показано, что эта проблема алгоритмически не разрешима.
 
 \end{document}
