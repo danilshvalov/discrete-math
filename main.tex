@@ -1,0 +1,166 @@
+\documentclass[a5paper, 11pt]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{tabularray}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage{float}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{fontspec}
+\usepackage[russian]{babel}
+\usepackage{indentfirst}
+\usepackage{relsize}
+\usepackage{multicol}
+\usepackage{MnSymbol}
+\usepackage[
+    left=10mm,
+    right=10mm,
+    top=15mm,
+    bottom=15mm
+]{geometry}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{unicode-math}
+\usepackage[math]{cellspace}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{array}
+
+\setmainfont{PT Astra Serif}
+\setmathfont{Latin Modern Math}
+\setmathfont[range=\setminus]{Asana Math}
+\setmathfont[range=\varnothing]{Asana Math}
+
+\captionsetup{width=\textwidth}
+
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
+\newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
+\newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
+
+\pagestyle{plain}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Теорема}[subsection]
+\renewcommand{\thetheorem}{\arabic{theorem}}
+
+\newtheorem*{theorem*}{Теорема}
+
+\newtheorem{lemma}{Лемма}[subsection]
+\renewcommand{\thelemma}{\arabic{lemma}}
+
+\newtheorem{property}{Свойство}[subsection]
+\renewcommand{\theproperty}{\arabic{property}}
+
+\newtheorem{example}{Пример}[subsection]
+\renewcommand{\theexample}{\arabic{example}}
+
+\newtheorem*{example*}{Пример}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}[subsection]
+\renewcommand{\thedefinition}{\arabic{definition}}
+
+\theoremstyle{definition}
+\newtheorem*{definition*}{Определение}
+
+\newtheorem{consequence}{Следствие}[subsection]
+\makeatletter
+\counterwithin{consequence}{property}
+\counterwithin{consequence}{theorem}
+\makeatother
+\renewcommand{\theconsequence}{\arabic{consequence}}
+
+\newtheorem*{consequence*}{Следствие}
+
+\newtheorem{note}{Замечание}[subsection]
+\makeatletter
+\counterwithin{note}{property}
+\counterwithin{note}{theorem}
+\makeatother
+\renewcommand{\thenote}{\arabic{note}}
+
+\newtheorem*{note*}{Замечание}
+
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+\newcommand{\intersects}{\mathord{\bigcirc\kern-0.5em{\bigcirc}}}
+\newcommand{\symdiff}{\medtriangleup}
+
+\newcommand*{\divby}{\mathrel{\rotatebox{90}{$\hskip-1pt.{}.{}.$}}}%
+
+\newcommand{\newpar}{$ $\par\nobreak\ignorespaces}
+\renewenvironment{proof}{{\noindent\bfseries Доказательство.}}{\smallskip\newpar \hfill\textit{Что и требовалось доказать.}}
+\usepackage[x11names]{xcolor}
+\author{Daniil Shvalov}
+\date{\today}
+\title{}
+
+% Define math operators
+\DeclareMathOperator{\rang}{rang}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\defect}{def}
+\renewcommand*{\nok}{\text{НОК}}
+\DeclareMathOperator{\biglor}{\mathrel{\raisebox{-.4ex}{$\mathlarger{\mathlarger{\mathlarger{\mathlarger{\lor}}}}$}}}
+\DeclareMathOperator{\bigland}{\mathrel{\raisebox{-.4ex}{$\mathlarger{\mathlarger{\mathlarger{\mathlarger{\land}}}}$}}}
+
+
+% Draw line in matrix
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+    \hskip -\arraycolsep
+    \let\@ifnextchar\new@ifnextchar
+    \array{#1}}
+\makeatother
+
+\setlist[itemize]{itemsep=0.5em,topsep=0em,parsep=0em}
+\setlist[enumerate]{itemsep=0.5em,topsep=0em,parsep=0em}
+
+\makeatletter
+\def\thm@space@setup{\thm@preskip=1pt
+    \thm@postskip=1pt}
+\makeatother
+
+\def\lets{%
+    \mathord{\setbox0=\hbox{$\exists$}%
+        \hbox{\kern 0.125\wd0%
+            \vbox to \ht0{%
+                \hrule width 0.75\wd0%
+                \vfill%
+                \hrule width 0.75\wd0}%
+            \vrule height \ht0%
+            \kern 0.125\wd0}%
+    }%
+}
+
+\hypersetup{
+    colorlinks = true,
+    urlcolor = blue,
+    citecolor = blue,
+    linkcolor = blue
+}
+
+\begin{document}
+
+{
+\hypersetup{linkcolor = black}
+\tableofcontents
+\newpage
+}
+
+\include{sets}
+
+\include{math-logic}
+
+\include{combinatorics}
+
+\include{graphs}
+
+\end{document}

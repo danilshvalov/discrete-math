@@ -1,1 +1,1 @@
-@default_files = ('notes.tex');
+@default_files = ('main.tex');
